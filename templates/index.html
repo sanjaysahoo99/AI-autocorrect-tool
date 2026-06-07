@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Autocorrect Tool</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="background"></div>
+
+    <div class="container">
+
+        <h1>AI Driven Autocorrect Tool</h1>
+
+        <p class="subtitle">
+            Improve text accuracy and fluency using Artificial Intelligence
+        </p>
+
+        <form method="POST">
+
+            <textarea 
+                name="text" 
+                placeholder="Type your sentence here..."
+                required
+            ></textarea>
+
+            <button type="submit">
+                Correct Text
+            </button>
+
+        </form>
+
+        {% if corrected %}
+
+        <div class="result-box">
+
+            <h2>Corrected Output</h2>
+
+            <p>{{ corrected }}</p>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</body>
+</html>
