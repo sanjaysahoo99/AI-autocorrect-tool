@@ -39,7 +39,7 @@ Correct Text
 
 </form>
 
-{% if corrected %}
+{% if original %}
 
 <div class="result-box">
 <h2>Original Text</h2>
@@ -56,7 +56,6 @@ Correct Text
 </div>
 
 <script>
-
 const toggleBtn = document.getElementById("themeToggle");
 
 toggleBtn.addEventListener("click", () => {
@@ -81,7 +80,6 @@ document.body.classList.add("light-mode");
 }
 
 };
-
 </script>
 
 </body>
