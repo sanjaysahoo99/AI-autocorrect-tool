@@ -1,54 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Autocorrect Tool</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Driven Autocorrect Tool</title>
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 </head>
-
 <body>
 
-    <div class="background"></div>
+<div class="background"></div>
 
-    <div class="container">
+<div class="container">
 
-        <h1>AI Driven Autocorrect Tool</h1>
+<button id="themeToggle" class="theme-btn">
+🌙 / ☀️
+</button>
 
-        <p class="subtitle">
-            Improve text accuracy and fluency using Artificial Intelligence
-        </p>
+<h1>AI Driven Autocorrect Tool</h1>
 
-        <form method="POST">
+<p class="subtitle">
+Improve text accuracy and fluency using Artificial Intelligence
+</p>
 
-            <textarea 
-                name="text" 
-                placeholder="Type your sentence here..."
-                required
-            ></textarea>
+<form method="POST">
 
-            <button type="submit">
-                Correct Text
-            </button>
+<textarea
+name="text"
+placeholder="Type your sentence here..."
+required></textarea>
 
-        </form>
+<button type="submit" class="correct-btn">
+Correct Text
+</button>
 
-        {% if corrected %}
+</form>
 
-        <div class="result-box">
+{% if corrected %}
 
-            <h2>Corrected Output</h2>
+<div class="result-box">
+<h2>Original Text</h2>
+<p>{{ original }}</p>
+</div>
 
-            <p>{{ corrected }}</p>
+<div class="result-box">
+<h2>Corrected Text</h2>
+<p>{{ corrected }}</p>
+</div>
 
-        </div>
+{% endif %}
 
-        {% endif %}
+</div>
 
-    </div>
+<script>
+
+const toggleBtn = document.getElementById("themeToggle");
+
+toggleBtn.addEventListener("click", () => {
+
+document.body.classList.toggle("light-mode");
+
+if(document.body.classList.contains("light-mode")){
+localStorage.setItem("theme","light");
+}
+else{
+localStorage.setItem("theme","dark");
+}
+
+});
+
+window.onload = () => {
+
+const savedTheme = localStorage.getItem("theme");
+
+if(savedTheme === "light"){
+document.body.classList.add("light-mode");
+}
+
+};
+
+</script>
 
 </body>
 </html>
