@@ -8,8 +8,8 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
 </head>
+
 <body>
 
 <div class="background"></div>
@@ -23,7 +23,7 @@
 <h1>AI Driven Autocorrect Tool</h1>
 
 <p class="subtitle">
-Improve text accuracy and fluency using Artificial Intelligence
+Improve text accuracy and reduce typing mistakes using AI
 </p>
 
 <form method="POST">
@@ -31,7 +31,7 @@ Improve text accuracy and fluency using Artificial Intelligence
 <textarea
 name="text"
 placeholder="Type your sentence here..."
-required></textarea>
+required>{{ original }}</textarea>
 
 <button type="submit" class="correct-btn">
 Correct Text
